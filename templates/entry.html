@@ -1,0 +1,12 @@
+﻿<div class="entry">
+<div id="headword">{{ lemmaSign }}</div> {% if homonymNumber %}<div id="homonymNumber">{{ homonymNumber }}</div>{% endif %}
+{% for psBlock in psBlocks %}
+<p id="PsBlock">
+<div id="POS">{{ psBlock['psbPS'] }}</div>
+{% for value in psBlock['values'] %}
+<div id="value">{{ value['valTr'] }}</div>
+{% endfor %}
+
+</p>
+{% endfor %}
+</div>

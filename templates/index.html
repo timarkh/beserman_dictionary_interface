@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <script src="static/jquery.min.js"></script>
+    <link href="static/style.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript">
+    $(function() {
+      $('a#lemma').bind('click', function() {
+        $.getJSON('/_get_entry', {
+          lemma: $( this ).text()
+        }, function(data) {
+          $("#entry").html(data.entryHtml);
+        });
+        return false;
+      });
+    });
+  </script>
+  </head>
+  <body>
+    <!-- <div id="container"> -->
+      <div id="header">
+        <h3>Бесермянский словарь</h3>
+      </div>
+      <hr/>
+      <div id="lemmas">
+        {% for lemma in lemmas %}
+          <p><a href="javascript:void();" id="lemma">{{ lemma }}</a></p>
+        {% endfor %}
+      </div>
+      <div id="entry">
+        <!-- <span id="result">...</span> -->...
+      </div>
+    <!-- </div> -->
+  </body>
+</html>
